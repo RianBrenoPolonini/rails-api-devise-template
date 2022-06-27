@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post '/login', to: 'sessions#login'
       post '/signup', to: 'sessions#signup'
-      get '/test_authentication', to: 'test_authetication#hello_world'
+      get '/is_authenticated', to: 'is_authenticated#index'
     end
   end
 end

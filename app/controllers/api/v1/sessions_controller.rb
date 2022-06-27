@@ -18,7 +18,7 @@ module Api
 
         if @user&.valid_password?(user_params[:password])
 
-          token = encode_user_data({ user_id: @user.id })
+          token = encode({ user_id: @user.id })
 
           render(json: { token: token, user: UserSerializer.new(@user) })
         else
