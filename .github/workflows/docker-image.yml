@@ -23,8 +23,14 @@ jobs:
     - name: Start server
       run: docker-compose up -d
 
-    - name: Start lint
+    - name: Rubocop
       run: docker-compose exec app bundle exec rubocop --parallel
+
+    - name: Bundle audit
       run: docker-compose exec app bundle exec bundle-audit --update
+
+    - name: Brakeman
       run: docker-compose bundle exec brakeman -q -w2
+
+    - name: Rspec
       run: docker-compose bundle exec rspec
