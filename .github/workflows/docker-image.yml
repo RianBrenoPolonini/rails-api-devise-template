@@ -24,13 +24,13 @@ jobs:
       run: docker-compose up -d
 
     - name: Rubocop
-      run: docker-compose exec app bundle exec rubocop --parallel
+      run: docker-compose run --rm app bundle exec rubocop --parallel
 
     - name: Bundle audit
-      run: docker-compose exec app bundle exec bundle-audit --update
+      run: docker-compose run --rm app bundle exec bundle-audit --update
 
     - name: Brakeman
-      run: docker-compose bundle exec brakeman -q -w2
+      run: docker-compose run --rm app bundle exec brakeman -q -w2
 
     - name: Rspec
-      run: docker-compose bundle exec rspec
+      run: docker-compose run --rm app bundle exec rspec
