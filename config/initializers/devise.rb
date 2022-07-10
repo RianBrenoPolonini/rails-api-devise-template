@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'e1f72684897efab0f2688097e774dbccdd265d3df3f635140de2ba2e93d336d8c1e4030acbdfebaa5825d43668947c3a6af340afdcdca530274dcb3296ac3f14'
+  # config.secret_key = 'ab9b8f185069a3551777a4a5e2839c516fcdd421aae77d2915393fc24b708e65404678c639c5e5b3000441b83a8afb9f3a4167fd811f240b1bb58034c98dd6f5'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -24,7 +24,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'devise@example.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '100a7cfb91897c3d3cc845c3bf065ed9129e785423fa5845b6083bed9e4e22f6a049224441b63080470733af7b5372340bc26fedc87601df2f970e2f5a2dbc7f'
+  # config.pepper = 'd096cd2c252d02c2359b5a8f4dbfc4eedbefdd4ba6ed9e9157ab2d1213b4ae05d4d261848eacfc28824ef2cb423c56854a47ccb3c30cc441c770fb2bb317848c'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -263,7 +263,7 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  # config.navigational_formats = ['*/*', :html]
+  config.navigational_formats = [:json]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete

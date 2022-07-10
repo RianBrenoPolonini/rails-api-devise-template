@@ -11,7 +11,7 @@ gem 'pg', '~> 1.1'
 
 gem 'puma', '~> 5.0'
 
-gem 'devise', '~> 4.8'
+gem 'devise_token_auth', '>= 1.2.0', git: "https://github.com/lynndylanhurley/devise_token_auth"
 
 gem 'active_model_serializers', '~> 0.10.13'
 
