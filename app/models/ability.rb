@@ -7,6 +7,5 @@ class Ability
     return if user.blank?
 
     can(:read, :is_authenticated)
-    can(:manage, User, user: user)
   end
 end

@@ -1,28 +1,28 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-  SECRET = ENV.fetch('SECRET_KEY_JWT')
+  include DeviseTokenAuth::Concerns::SetUserByToken
 
-  def current_user
-    access_token = request.headers['access-token']&.split&.last
-    begin
-      user_id = decode(access_token)['user_id']
-      @current_user = User.find(user_id)
-    rescue JWT::DecodeError, ActiveRecord::RecordNotFound
-      @current_user = nil
-    end
-  end
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def encode(payload, exp = 30.minutes.from_now)
-    payload[:exp] = exp.to_i
-    JWT.encode(payload, SECRET, 'HS256')
-  end
-
-  def decode(token)
-    JWT.decode(token, SECRET, true, { algorithm: 'HS256' })[0]
-  end
+  rescue_from ActiveRecord::RecordNotFound, with: :show_not_found_errors
 
   rescue_from CanCan::AccessDenied do
-    render(json: { error: 'Unauthorized or invalid access token!' }, status: :unauthorized)
+    render(json: { error: 'Unauthorized!' }, status: :unauthorized)
+  end
+
+  def current_ability
+    @current_ability ||= Ability.new(current_api_user)
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[name nickname])
+  end
+
+  def show_not_found_errors(exception)
+    render(json: { error: "#{exception.message} with 'id'=#{params[:id]}" },
+           status: :not_found)
   end
 end
