@@ -5,5 +5,7 @@ class Ability
 
   def initialize(user)
     return if user.blank?
+
+    can(:read, :is_authenticated)
   end
 end

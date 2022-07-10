@@ -11,7 +11,7 @@ gem 'pg', '~> 1.1'
 
 gem 'puma', '~> 5.0'
 
-gem 'devise_token_auth', '>= 1.2.0', git: "https://github.com/lynndylanhurley/devise_token_auth"
+gem 'devise_token_auth', '>= 1.2.0', git: 'https://github.com/lynndylanhurley/devise_token_auth'
 
 gem 'active_model_serializers', '~> 0.10.13'
 
@@ -29,7 +29,7 @@ group :development, :test do
   gem 'bundler-audit', '~> 0.9.1'
   gem 'byebug', '~> 11.1'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'dotenv', '~> 2.7', '>= 2.7.6'
+  gem 'dotenv-rails'
   gem 'factory_bot', '~> 6.2', '>= 6.2.1'
   gem 'faker', '~> 2.21'
   gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
@@ -41,4 +41,9 @@ end
 
 group :development do
   gem 'brakeman', '~> 5.2', '>= 5.2.3'
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'simplecov', '~> 0.21.2'
 end
