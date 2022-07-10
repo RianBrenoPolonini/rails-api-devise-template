@@ -98,9 +98,6 @@ GEM
     diff-lcs (1.5.0)
     digest (3.1.0)
     dotenv (2.7.6)
-    dotenv-rails (2.7.6)
-      dotenv (= 2.7.6)
-      railties (>= 3.2)
     erubi (1.10.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -113,6 +110,7 @@ GEM
     io-console (0.5.11)
     irb (1.4.1)
       reline (>= 0.3.0)
+    json (2.6.2)
     jsonapi-renderer (0.2.2)
     jwt (2.4.1)
     loofah (2.18.0)
@@ -207,7 +205,8 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.11.0)
-    rubocop (1.30.1)
+    rubocop (1.31.2)
+      json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.1.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -221,12 +220,12 @@ GEM
     rubocop-performance (1.14.2)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rails (2.15.1)
+    rubocop-rails (2.15.2)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.7.0, < 2.0)
-    rubocop-rspec (2.11.1)
-      rubocop (~> 1.19)
+    rubocop-rspec (2.12.1)
+      rubocop (~> 1.31)
     ruby-progressbar (1.11.0)
     strscan (3.0.3)
     thor (1.2.1)
@@ -245,28 +244,28 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  active_model_serializers
-  bootsnap
-  brakeman
+  active_model_serializers (~> 0.10.13)
+  bootsnap (~> 1.12)
+  brakeman (~> 5.2, >= 5.2.3)
   bundler-audit (~> 0.9.1)
   byebug (~> 11.1)
-  cancancan
+  cancancan (~> 3.4)
   debug
-  devise
-  dotenv-rails
-  factory_bot
-  faker
-  jwt
+  devise (~> 4.8)
+  dotenv (~> 2.7, >= 2.7.6)
+  factory_bot (~> 6.2, >= 6.2.1)
+  faker (~> 2.21)
+  jwt (~> 2.4)
   pg (~> 1.1)
   puma (~> 5.0)
-  rack-cors
+  rack-cors (~> 1.1)
   rails (~> 7.0.3)
-  rspec-rails
-  rubocop
-  rubocop-performance
-  rubocop-rails
-  rubocop-rspec
-  tzinfo-data
+  rspec-rails (~> 5.1, >= 5.1.2)
+  rubocop (~> 1.31, >= 1.31.2)
+  rubocop-performance (~> 1.14, >= 1.14.2)
+  rubocop-rails (~> 2.15, >= 2.15.2)
+  rubocop-rspec (~> 2.12, >= 2.12.1)
+  tzinfo-data (~> 2.0)
 
 RUBY VERSION
    ruby 3.0.3p157

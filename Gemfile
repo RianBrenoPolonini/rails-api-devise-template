@@ -11,34 +11,34 @@ gem 'pg', '~> 1.1'
 
 gem 'puma', '~> 5.0'
 
-gem 'devise'
+gem 'devise', '~> 4.8'
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.10.13'
 
-gem 'jwt'
+gem 'jwt', '~> 2.4'
 
-gem 'cancancan'
+gem 'cancancan', '~> 3.4'
 
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'tzinfo-data', '~> 2.0', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem 'bootsnap', require: false
+gem 'bootsnap', '~> 1.12', require: false
 
-gem 'rack-cors'
+gem 'rack-cors', '~> 1.1'
 
 group :development, :test do
   gem 'bundler-audit', '~> 0.9.1'
   gem 'byebug', '~> 11.1'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'dotenv-rails'
-  gem 'factory_bot'
-  gem 'faker'
-  gem 'rspec-rails'
-  gem 'rubocop', require: false
-  gem 'rubocop-performance'
-  gem 'rubocop-rails'
-  gem 'rubocop-rspec'
+  gem 'dotenv', '~> 2.7', '>= 2.7.6'
+  gem 'factory_bot', '~> 6.2', '>= 6.2.1'
+  gem 'faker', '~> 2.21'
+  gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
+  gem 'rubocop', '~> 1.31', '>= 1.31.2', require: false
+  gem 'rubocop-performance', '~> 1.14', '>= 1.14.2'
+  gem 'rubocop-rails', '~> 2.15', '>= 2.15.2'
+  gem 'rubocop-rspec', '~> 2.12', '>= 2.12.1'
 end
 
 group :development do
-  gem 'brakeman'
+  gem 'brakeman', '~> 5.2', '>= 5.2.3'
 end
